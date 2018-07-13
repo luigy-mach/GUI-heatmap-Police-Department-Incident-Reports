@@ -10,6 +10,9 @@
 
 #include <iomanip>      // std::setprecision
 
+#include <fstream>      // std::ofstream
+
+
 #include<vector>
 #define earthRadiusKm 6371.0
 
@@ -18,7 +21,12 @@ using namespace std;
 
 
 #define LENBUFF 50
+#define SETPRECISIONDOUBLE 3
 #define LENVEC 21
+#define FILEIN "miraflores.txt"
+#define FILEOUT "distances-miraflores.txt"
+
+
 
 typedef vector< pair<double,double> > vecCoor;
 typedef vector< pair<double,double> >::iterator itvecCoor;
@@ -54,6 +62,7 @@ double distanceEarth(double lat1d, double lon1d, double lat2d, double lon2d) {
   u = sin((lat2r - lat1r)/2);
   v = sin((lon2r - lon1r)/2);
   return 2.0 * earthRadiusKm * asin(sqrt(u * u + cos(lat1r) * cos(lat2r) * v * v));
+  //return 2.0 * earthRadiusKm * asin(sqrt(u * u + cos(lat1r) * cos(lat2r) * v * v))*1000;
 }
 
 
@@ -94,7 +103,7 @@ void load_file(vecCoor& myvec)
   char* pt = NULL;
 
   ifstream file;
-  file.open("miraflores.txt",ifstream::in);
+  file.open(FILEIN,ifstream::in);
   
   while(!file.eof())
   { 
@@ -116,7 +125,7 @@ void print_matrix(matrix& mymat, int lenVec)
   for(int i=0 ; i<lenVec ; i++){
     for(int j=0 ; j<lenVec ; j++){
       cout<<fixed;
-      cout<<setprecision(3)<<mymat[i][j];
+      cout<<setprecision(SETPRECISIONDOUBLE)<<mymat[i][j];
       cout<<" ";
     }
     cout<<endl;
@@ -124,6 +133,19 @@ void print_matrix(matrix& mymat, int lenVec)
 }
 
 
+
+void print_file(matrix& mymat, int lenVec){
+  ofstream ofs (FILEOUT, std::ofstream::out);
+  for(int i=0 ; i<lenVec ; i++){
+    for(int j=0 ; j<lenVec ; j++){
+      ofs<<fixed;
+      ofs<<setprecision(SETPRECISIONDOUBLE)<<mymat[i][j];
+      ofs<<" ";
+    }
+    ofs<<endl;
+  }
+  ofs.close();
+}
 
 int main(){
 
@@ -137,6 +159,7 @@ int main(){
   matrix_distances(mymat,myvec,LENVEC);
 
   print_matrix(mymat,LENVEC);
+  print_file(mymat,LENVEC);
 
 
 
