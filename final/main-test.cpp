@@ -138,6 +138,9 @@ void open_db()
 	{	
 		file.getline(buff,LENBUFF);
 		lenCurr = strlen(buff);
+		if(lenCurr==0){
+			continue;
+		}
 		
 		char temp_buff[LENBUFF];
 		char PdDistrict[LENBUFF];
@@ -462,7 +465,7 @@ int main(){
 
 
 	open_db();
-	
+		
 
 	cout<<"-------------------------------"<<endl;
 	vecString temp_Time = find_Time(myindexTime,"14:00");

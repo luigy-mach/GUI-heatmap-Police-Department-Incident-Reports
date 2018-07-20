@@ -49,6 +49,6 @@ gmap = gmplot.GoogleMapPlotter(latitude2[0],longitude2[0],16)
 #gmap.scatter(latitudes, longitudes, 'k', marker=True)
 
 
-gmap.heatmap(latitude2, longitude2,10,20,None,0.8,100,True)
+gmap.heatmap(latitude2, longitude2,10,10,None,0.8,10,True)
 
 gmap.draw("final.html")

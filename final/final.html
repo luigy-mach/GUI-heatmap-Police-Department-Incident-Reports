@@ -6,7 +6,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
 <script type="text/javascript">
 	function initialize() {
-		var centerlatlng = new google.maps.LatLng(37.766792, -122.440721);
+		var centerlatlng = new google.maps.LatLng(37.772579, -122.449143);
 		var myOptions = {
 			zoom: 16,
 			center: centerlatlng,
@@ -15,6 +15,11 @@
 		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
 var heatmap_points = [
+new google.maps.LatLng(37.772579, -122.449143),
+new google.maps.LatLng(37.769166, -122.453535),
+new google.maps.LatLng(37.772791, -122.447498),
+new google.maps.LatLng(37.769166, -122.453535),
+new google.maps.LatLng(37.774102, -122.441086),
 new google.maps.LatLng(37.766792, -122.440721),
 ];
 
@@ -26,8 +31,8 @@ data: pointArray
 });
 heatmap.setMap(map);
 heatmap.set('threshold', 10);
-heatmap.set('radius', 20);
-heatmap.set('maxIntensity', 100);
+heatmap.set('radius', 10);
+heatmap.set('maxIntensity', 10);
 heatmap.set('opacity', 0.800000);
 heatmap.set('dissipating', true);
 	}
