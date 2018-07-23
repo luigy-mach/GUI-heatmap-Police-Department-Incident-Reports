@@ -5,6 +5,7 @@ Test:
 ![](https://github.com/luigy-mach/utils/tree/master/GUI-heatmap/images/heatmap-test1.png?raw=true)
 
 ![](https://github.com/luigy-mach/utils/tree/master/GUI-heatmap/images/heatmap-test2.png?raw=true)
+![port8080|512x397](./images/heatmap-test2.png)
 
 
 Puedes descargar el Dataset: https://data.sfgov.org/Public-Safety/-Change-Notice-Police-Department-Incidents/tmnf-yvry
